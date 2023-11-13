@@ -30,11 +30,17 @@ class ImageProcessingHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         archivo_imagen = '/home/nacho/Escritorio/Computacion 2/Computacion-2/Trabajos Practicos/TP2/lebron_wade.jpg' #Cambiar el path para que funcione
         imagen_procesada = self.procesar_imagen(archivo_imagen)
-        self.send_response(200)
-        self.send_header('Content-type', 'image/jpeg')
-        self.end_headers()
+        # Guardo la imagen procesada en un archivo temporal
+        temp_file = 'lebron_wade_grey.jpg'
+        with open(temp_file, 'wb') as f:
+            f.write(imagen_procesada)
         try:
-            self.wfile.write(imagen_procesada)
+            self.send_response(200)
+            self.send_header('Content-type', 'image/jpeg')
+            self.send_header('Content-disposition', 'attachment; filename="imagen_procesada.jpg"')
+            self.end_headers()
+            with open(temp_file, 'rb') as f:
+                self.wfile.write(f.read())
         except BrokenPipeError:
             print("Cierre de conexion forzada por el cliente")
 
