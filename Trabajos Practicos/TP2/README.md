@@ -15,6 +15,7 @@
 - **Acceder al servidor:**
     Una vez que el servidor esté en funcionamiento, abra su navegador web y vaya a la siguiente dirección:
     http://[dirección_IP]:[puerto] → por ejemplo: http://127.0.0.1:8080
+    UNa vez ingresado le descargara automaticamente la imagen modificada
 
 - **Cerrar el servidor**
     Para cerrar el servidor solo debe presionar Ctrl + C en la terminal donde se ejecute el script.
