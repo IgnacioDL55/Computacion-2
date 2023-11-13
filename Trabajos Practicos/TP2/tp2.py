@@ -37,7 +37,7 @@ class ImageProcessingHandler(BaseHTTPRequestHandler):
         try:
             self.send_response(200)
             self.send_header('Content-type', 'image/jpeg')
-            self.send_header('Content-disposition', 'attachment; filename="imagen_procesada.jpg"')
+            self.send_header('Content-disposition', 'attachment; filename="lebron_wade_grey.jpg"')
             self.end_headers()
             with open(temp_file, 'rb') as f:
                 self.wfile.write(f.read())
